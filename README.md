@@ -43,6 +43,8 @@ A IA analisa a velocidade com que o nível de água sobe e determina se há risc
 - **Desempenho da IA**: A IA precisa ser robusta e precisa, o que pode exigir grande volume de dados históricos para treinamento.
 - **Conectividade**: O projeto depende de uma conexão Wi-Fi estável, o que pode ser desafiador em áreas remotas.
 
+![Diagrama do Projeto](./images/diagrama.png)
+
 ## Contribuidores
 
 - **Eduardo da Maia Haak**
