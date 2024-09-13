@@ -6,6 +6,50 @@ Este projeto é um sistema integrado de **Internet das Coisas (IoT)** e **Inteli
 
 O objetivo do sistema é alertar rapidamente as comunidades e autoridades para que possam tomar medidas preventivas, minimizando danos.
 
+## Requisitos Funcionais
+
+**RF1:** O sistema deve medir a velocidade de enchimento do balde com precisão.
+
+**RF2:** O sistema deve enviar alertas para dispositivos conectados (e.g., celular, e-mail) quando o nível da água atingir um valor crítico.
+
+**RF3:** O sistema deve ser capaz de armazenar os dados do nível de água ao longo do tempo para análise e comparação futura.
+
+**RF4:** O sistema deverá ser capaz de identificar casos de aumento do nível da água antes de iniciar o processamento, para evitar custos desnecessários de uso do sistema.
+
+**RF5:** O sistema deverá usar os dados coletados anteriormente para fazer uma análise preditiva de enchente.
+
+**RF6:** O sensor de nível de água deve ter uma precisão adequada e estar devidamente posicionado para detectar pequenas variações no nível da água.
+
+**RF7:** O Arduino deve enviar os dados processados para um servidor ou para um sistema de IA via conexão Wi-Fi.
+
+**RF8:** A IA deve calcular a probabilidade de ocorrência de uma enchente com base nas análises de dados históricos e em tempo real com base na velocidade do nível de água no balde.
+
+**RF9:** O sistema deve ser modular, permitindo adicionar novos sensores ou componentes sem a necessidade de reconfiguração complexa.
+
+**RF10:** O sistema deve suportar a redundância de sensores (utilização de mais de um sensor por ponto de medição) para garantir maior precisão e evitar falhas.
+
+## Requisitos Não Funcionais
+
+**RNF1**: O sistema deve operar com baixo consumo de energia.
+
+**RNF2**: O sistema deve ser resistente à água e outros elementos para garantir sua durabilidade.
+
+**RNF3**: O sistema deve coletar informações do banco de dados da defesa civil a respeito do nível da maré.
+
+**RNF4**: Os sensores deverão estar sempre em funcionamento, mas o processamento será ativado apenas quando os sensores começarem a detectar água (sinalizando um aumento no nível da água).
+
+**RNF5**: O sistema deve ser construído para possibilitar uma manutenção efetiva.
+
+**RNF6**: O sistema deve ser testado e alimentado com dados até atingir uma margem satisfatória de acertos em sua previsão.
+
+**RNF7**: O sistema deve operar de forma contínua e precisa, sem falhas frequentes, especialmente durante eventos críticos.
+
+**RNF8**: O sistema deve processar os dados e fornecer alertas em tempo hábil, sem atrasos significantes.
+
+**RNF9**: O acesso ao sistema e ao banco de dados SQLServer deve ser restrito a usuários autorizados.
+
+**RNF10**: O sistema deve ser facilmente transportável e instalável em diferentes locais sem a necessidade de grandes modificações.
+
 ## Funcionamento Geral
 
 O projeto é baseado na integração de dispositivos IoT e algoritmos de IA. Ele utiliza os seguintes componentes:
