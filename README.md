@@ -89,6 +89,13 @@ A IA analisa a velocidade com que o nível de água sobe e determina se há risc
 
 ![Diagrama do Projeto](./images/diagrama.png)
 
+## Orçamento
+- ![Orçamento do Projeto](./images/orcamentoPAC.png)
+
+## Link para o projeto no Tinkercad
+
+https://www.tinkercad.com/things/9aKuwWMNwHw-copy-of-sensor-de-umidade-do-solo/editel?sharecode=28SnChhyGOE2eEZ6ECRSjwjafxT-p0dK3zW3DMPbYMw
+
 ## Contribuidores
 
 - **Eduardo da Maia Haak**
