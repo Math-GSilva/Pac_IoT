@@ -4,6 +4,14 @@ import json
 import numpy as np
 from sklearn.linear_model import LinearRegression
 from datetime import datetime
+from twilio.rest import Client
+
+# Configuração do Twilio
+account_sid = ''
+auth_token = ''
+twilio_number = ''
+
+client = Client(account_sid, auth_token)
 
 # Conexão com o Firebase
 cred = credentials.Certificate('firebase_key.json')
@@ -15,8 +23,10 @@ docs = doc_ref.stream()
 
 # Obter nível de água mais recente
 water_level = None
+level_risk = None
 for doc in docs:
     water_level = doc.to_dict().get("waterLevel")
+    level_risk = doc.to_dict().get("risk")
 
 if water_level is None:
     raise ValueError("Nenhum dado de nível de água encontrado no Firebase!")
@@ -50,7 +60,7 @@ for tide in today_tide_info.split('\n'):
                 closest_time_diff = time_diff
                 closest_tide_level = tide_level
 
-# Dados de exemplo para treinamento do modelo de regressão múltipla
+# Dados de conversão do modelo de regressão múltipla
 level = np.array([
     [1800, 1.2],
     [1850, 1.4],
@@ -70,5 +80,21 @@ model.fit(level, risk)
 new_level = np.array([[water_level, closest_tide_level]])
 flood_risk = model.predict(new_level)[0]
 
+phone_numbers = [
+    "+5547996135693"
+]
+
 print(f"Nível de água: {water_level}, Nível da maré mais próximo: {closest_tide_level}m")
 print(f"Risco de enchente previsto: {flood_risk:.2f} %")
+
+def send_sms(message):
+    for number in phone_numbers:
+        message = client.messages.create(
+            body=message,
+            from_=twilio_number,
+            to=number
+        )
+        print(f"Mensagem enviada para {number}: {message.sid}")
+
+if flood_risk > 50 or level_risk == "HIGH":
+    send_sms(f"Alerta de Enchente: Risco de {flood_risk:.2f}%")
